@@ -50,4 +50,21 @@ docker run -it \
 --name pgadmin \
 dpage/pgadmin4
 ```
+
+## Write a dockerfile
+``` docker
+# building a docker file
+docker build -t taxi_ingest:v001 .
+
+# and to run the container
+docker run --network=pg-network taxi_ingest:v001 \
+--user=root
+--password=root
+--host=localhost
+--port=5432
+--db=ny_taxi
+--table_name=yellow_taxi_trips
+--url=url
+```
+
 ## using docker compose to run all container
